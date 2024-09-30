@@ -10,6 +10,14 @@ def add_to_field(sth):
     field.delete("1.0","end")
     field.insert("1.0",field_text)
 
+#Calculate function for the result
+def calculate():
+    global field_text
+    result = str(eval(field_text))
+    field.delete("1.0","end")
+    field.insert("1.0",result)
+
+
 window = tk.Tk()
 window.geometry("300x300")
 field = tk.Text(window,height=2,width=21,font=("Times New Roman", 20))
