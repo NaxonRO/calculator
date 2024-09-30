@@ -17,6 +17,11 @@ def calculate():
     field.delete("1.0","end")
     field.insert("1.0",result)
 
+#Function that will clear the field
+def clear():
+    global field_text
+    field_text = ""
+    field.delete("1.0","end")
 
 window = tk.Tk()
 window.geometry("300x300")
