@@ -17,6 +17,13 @@ def calculate():
     field.delete("1.0", "end")
     field.insert("1.0", result)
 
+# Function to handle square root
+def sqrt():
+    global field_text
+    result = str(math.sqrt(eval(field_text)))  # Calculate sqrt of the current field
+    field.delete("1.0", "end")
+    field.insert("1.0", result)
+
 # Function that will clear the field
 def clear():
     global field_text
