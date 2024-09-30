@@ -1,4 +1,5 @@
 import tkinter as tk
+import math
 
 # Field text for the display of numbers and operations
 field_text = "1"
@@ -60,6 +61,22 @@ button_8.grid(row=2, column=2)
 
 button_9 = tk.Button(window, text="9", command=lambda: add_to_field(9), width=5, font=("Times New Roman", 14))
 button_9.grid(row=2, column=3)
+
+# Add operation buttons
+button_add = tk.Button(window, text="+", command=lambda: add_to_field("+"), width=5, font=("Times New Roman", 14))
+button_add.grid(row=2, column=4)
+
+button_subtract = tk.Button(window, text="-", command=lambda: add_to_field("-"), width=5, font=("Times New Roman", 14))
+button_subtract.grid(row=3, column=4)
+
+button_multiply = tk.Button(window, text="*", command=lambda: add_to_field("*"), width=5, font=("Times New Roman", 14))
+button_multiply.grid(row=4, column=4)
+
+button_divide = tk.Button(window, text="/", command=lambda: add_to_field("/"), width=5, font=("Times New Roman", 14))
+button_divide.grid(row=5, column=4)
+
+button_sqrt = tk.Button(window, text="√", command=sqrt, width=5, font=("Times New Roman", 14))
+button_sqrt.grid(row=6, column=1)
 
 # Add the clear button
 button_clear = tk.Button(window, text="C", command=clear, width=5, font=("Times New Roman", 14))
