@@ -61,5 +61,13 @@ button_8.grid(row=2, column=2)
 button_9 = tk.Button(window, text="9", command=lambda: add_to_field(9), width=5, font=("Times New Roman", 14))
 button_9.grid(row=2, column=3)
 
+# Add the clear button
+button_clear = tk.Button(window, text="C", command=clear, width=5, font=("Times New Roman", 14))
+button_clear.grid(row=5, column=1)
+
+# Add the equal button
+button_equals = tk.Button(window, text="=", command=calculate, width=5, font=("Times New Roman", 14))
+button_equals.grid(row=5, column=3)
+
 # Start the main loop
 window.mainloop()
