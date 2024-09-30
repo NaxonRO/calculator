@@ -7,6 +7,8 @@ field_text = "1"
 def add_to_field(sth):
     global field_text
     field_text = field_text+str(sth)
+    field.delete("1.0","end")
+    field.insert("1.0",field_text)
 
 window = tk.Tk()
 window.geometry("300x300")
