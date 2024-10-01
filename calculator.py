@@ -4,11 +4,14 @@ import math
 # Field text for the display of numbers and operations
 field_text = "1"
 
+
 def add_to_field(sth):
     global field_text
     field_text = field_text + str(sth)
     field.delete("1.0", "end")
     field.insert("1.0", field_text)
+
+
 
 # Calculate function for the result
 def calculate():
@@ -17,6 +20,8 @@ def calculate():
     field.delete("1.0", "end")
     field.insert("1.0", result)
 
+
+
 # Function to handle square root
 def sqrt():
     global field_text
@@ -24,19 +29,28 @@ def sqrt():
     field.delete("1.0", "end")
     field.insert("1.0", result)
 
+
+
 # Function that will clear the field
 def clear():
     global field_text
     field_text = ""
     field.delete("1.0", "end")
 
+
+
 # Create the main window
 window = tk.Tk()
+window.title("Calculator")
 window.geometry("300x300")
+
+
 
 # Create the text field
 field = tk.Text(window, height=2, width=21, font=("Times New Roman", 20))
 field.grid(row=1, column=1, columnspan=4)
+
+
 
 # Create the buttons to add numbers and operations
 button_0 = tk.Button(window, text="0", command=lambda: add_to_field(0), width=5, font=("Times New Roman", 14))
@@ -69,6 +83,8 @@ button_8.grid(row=2, column=2)
 button_9 = tk.Button(window, text="9", command=lambda: add_to_field(9), width=5, font=("Times New Roman", 14))
 button_9.grid(row=2, column=3)
 
+
+
 # Add operation buttons
 button_add = tk.Button(window, text="+", command=lambda: add_to_field("+"), width=5, font=("Times New Roman", 14))
 button_add.grid(row=2, column=4)
@@ -83,15 +99,33 @@ button_divide = tk.Button(window, text="/", command=lambda: add_to_field("/"), w
 button_divide.grid(row=5, column=4)
 
 button_sqrt = tk.Button(window, text="√", command=sqrt, width=5, font=("Times New Roman", 14))
-button_sqrt.grid(row=6, column=1)
+button_sqrt.grid(row=6, column=4)
+
+button_point = tk.Button(window, text=".", command=lambda: add_to_field("."), width=5, font=("Times New Roman", 14))
+button_point.grid(row=6, column=1)
+
+
+
+# Add parentheses buttons
+button_open_paren = tk.Button(window, text="(", command=lambda: add_to_field("("), width=5, font=("Times New Roman", 14))
+button_open_paren.grid(row=6, column=2)
+
+button_close_paren = tk.Button(window, text=")", command=lambda: add_to_field(")"), width=5, font=("Times New Roman", 14))
+button_close_paren.grid(row=6, column=3)
+
+
 
 # Add the clear button
 button_clear = tk.Button(window, text="C", command=clear, width=5, font=("Times New Roman", 14))
 button_clear.grid(row=5, column=1)
 
+
+
 # Add the equal button
 button_equals = tk.Button(window, text="=", command=calculate, width=5, font=("Times New Roman", 14))
 button_equals.grid(row=5, column=3)
+
+
 
 # Start the main loop
 window.mainloop()
