@@ -1,5 +1,6 @@
 import tkinter as tk
 import math
+import re
 
 # Field text for the display of numbers and operations
 field_text = "1"
@@ -16,7 +17,17 @@ def add_to_field(sth):
 # Calculate function for the result
 def calculate():
     global field_text
-    result = str(eval(field_text))
+    # Function to replace '√(expression)' with sqrt(expression)
+    def sqrt_replace(match):
+        # Extract the content inside the parentheses
+        expression = match.group(1)
+        # Calculate the sqrt of the evaluated expression
+        return str(math.sqrt(eval(expression)))
+
+    # Use regex to find all instances of expression for sqrt()
+    field_text_processed = re.sub(r'√\((.*?)\)', sqrt_replace, field_text)
+    # Evaluate the rest of the calcul
+    result = str(eval(field_text_processed))
     field.delete("1.0", "end")
     field.insert("1.0", result)
 
@@ -25,7 +36,8 @@ def calculate():
 # Function to handle square root
 def sqrt():
     global field_text
-    result = str(math.sqrt(eval(field_text)))  # Calculate sqrt of the current field
+    # Calculate sqrt of the current field
+    result = str(math.sqrt(eval(field_text)))
     field.delete("1.0", "end")
     field.insert("1.0", result)
 
@@ -98,7 +110,7 @@ button_multiply.grid(row=4, column=4)
 button_divide = tk.Button(window, text="/", command=lambda: add_to_field("/"), width=5, font=("Times New Roman", 14))
 button_divide.grid(row=5, column=4)
 
-button_sqrt = tk.Button(window, text="√", command=sqrt, width=5, font=("Times New Roman", 14))
+button_sqrt = tk.Button(window, text="√", command=lambda: add_to_field("√"), width=5, font=("Times New Roman", 14))
 button_sqrt.grid(row=6, column=4)
 
 button_point = tk.Button(window, text=".", command=lambda: add_to_field("."), width=5, font=("Times New Roman", 14))
