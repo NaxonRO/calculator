@@ -8,10 +8,20 @@ field_text = "1"
 
 def add_to_field(sth):
     global field_text
-    field_text = field_text + str(sth)
+
+    # Handle automatic multiplication when parentheses or square root is added after a number
+    if field_text and field_text[-1].isdigit() and (sth == '(' or sth == '√'):
+        field_text += '*'
+
+    # Replace the last operator if a new one is added consecutively
+    if field_text and field_text[-1] in '+-*/' and str(sth) in '+-*/':
+        # Remove the last operator
+        field_text = field_text[:-1]
+
+    # Ensure 'sth' is treated as a string
+    field_text += str(sth)
     field.delete("1.0", "end")
     field.insert("1.0", field_text)
-
 
 
 # Calculate function for the result
