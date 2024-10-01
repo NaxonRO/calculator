@@ -1,4 +1,5 @@
 # Calculator with python3
+## Requirements
 ### For running this calculator you will need to have installed in your linux the following:
 - #### python 3.x <br>
 ``$ sudo apt-get update``<br>
@@ -6,8 +7,22 @@
 - #### tkinter <br>
 ``$ sudo apt install python3-tk``
 
-# How to use it
-- In the linux command move to the directory where is the calculator.py and then type the command ``python3 calculator.py``
-- A prompt will appear and you will see the UI of the calculator
-- You can do math calculs by adding numbers and operation with clicks on it
-- After added all the expression, press equal to see the result
+## How to Use It
+
+### Navigate to the Calculator Directory: 
+- Open your terminal and move to the directory where calculator.py is located.
+``$ cd /path/to/your/calculator/directory``
+
+### Run the Calculator: 
+- Execute the following command:
+``$ python3 calculator.py``
+
+### Using the Calculator:
+- A prompt will appear displaying the UI of the calculator.
+- You can perform mathematical calculations by clicking on the numbers and operations.
+- After entering the entire expression, press the Equal (=) button to see the result.
+
+## Features
+- Basic arithmetic operations: addition, subtraction, multiplication, and division.
+- Support for square root calculations.
+- Clear and remove last character functionality.
