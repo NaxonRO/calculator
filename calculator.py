@@ -61,6 +61,15 @@ def clear():
 
 
 
+# Function to remove the last character from the field
+def remove_last_character():
+    global field_text
+    field_text = field_text[:-1]  # Remove the last character
+    field.delete("1.0", "end")
+    field.insert("1.0", field_text)
+
+
+
 # Create the main window
 window = tk.Tk()
 window.title("Calculator")
@@ -140,6 +149,12 @@ button_close_paren.grid(row=6, column=3)
 # Add the clear button
 button_clear = tk.Button(window, text="C", command=clear, width=5, font=("Times New Roman", 14))
 button_clear.grid(row=5, column=1)
+
+
+
+# Remove button
+button_clear = tk.Button(window, text="Remove", command=remove_last_character, width=5, font=("Times New Roman", 14))
+button_clear.grid(row=7, column=2)
 
 
 
